@@ -38,3 +38,5 @@ void testprint(char *a)
       return ;
 }
 
+void addaline ()
+{;}
