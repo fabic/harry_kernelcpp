@@ -1,0 +1,64 @@
+
+Get further information please goto http://www.osdev.org
+
+ linker.ld
+
+Using C++ adds two more sections of interest to your kernel binaries: The constructors and destructors of static objects. You have to modify the linker script to include them.
+
+.data ALIGN (0x1000) : {
+   start_ctors = .;
+   *(.ctor*)
+   end_ctors = .;
+   start_dtors = .;
+   *(.dtor*)
+   end_dtors = .;
+   *(.data)
+}
+
+loader:
+
+ C/C++
+
+typedef unsigned long vintp; //- integer type to store a pointer.
+ 
+extern start_ctors, end_ctors, start_dtors, end_dtors;
+ 
+void loader(void) {
+    //- call all the static constructors in the list.
+    for(vintp * call = &start_ctors; call < &end_ctors; call++) {
+        ((void (*)(void))*call)();
+    }
+ 
+    //- call kernel proper
+    main();
+ 
+    //- call all the static destructors in the list.
+    for(vintp * call = &start_dtors; call < &end_dtors; call++) {
+        ((void (*)(void))*call)();
+    }
+}
+
+
+ main.cpp
+
+Now, all that is needed is to declare C style linkage for the kernel entry function, so that its name will not get mangled to C++ linkage style:
+
+extern "C" void _main(struct multiboot_data* mbd, unsigned int magic);
+ 
+void _main( struct multiboot_data* mbd, unsigned int magic )
+{
+   // write your kernel here
+} Notes
+
+In this code "loader" is the entry point to the binary. Make sure that your linker script has something like
+
+ENTRY(loader)
+
+Questions
+
+Does anyone know if those .ctors and .dtors are specific to some compiler or if there's an ABI stating them ?
+    It's defined in the ELF ABI for System V platforms, but it's used by most unices. The concept of using a constructor/destructor list for bootup is not so much specified by any C++ ABI, but it is used in pretty much all implementations (not checked, but probably all). 
+Does anyone know how to control the order of the static ctor's ?
+    It is assumed that the compiler puts them into the correct order. However, it is probably best to keep interdependencies at an absolute minimum. 
+
+
