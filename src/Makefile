@@ -1,7 +1,7 @@
 # Makefile for building kernel module
 
 # Comment/uncomment the following line to disable/enable debugging
-#DEBUG = y
+# DEBUG = y
 
 # Add your debugging flag (or not) to CFLAGS
 ifeq ($(DEBUG),y)
@@ -11,13 +11,14 @@ else
 endif
 EXTRA_CFLAGS  += $(DEBFLAGS) -I$(LDDINCDIR)
 
-CC = g++
+# CC = g++
 ifneq ($(KERNELRELEASE),)
 # call from kernel build system
 
 obj-m	:= mykernel.o
 mykernel-objs += sector.o
 mykernel-objs += test.o
+mykernel-objs += libtest.a
 mykernel-objs += loader.o
 
 else

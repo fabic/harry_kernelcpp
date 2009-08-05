@@ -1,4 +1,7 @@
 
+#ifdef __cplusplus
+extern "C" {
+#endif
  
 
 // Markers for the end of the constructor list
@@ -332,4 +335,9 @@ Enabling exceptions
 
 
 
+#endif
+
+
+#ifdef __cplusplus
+}
 #endif
