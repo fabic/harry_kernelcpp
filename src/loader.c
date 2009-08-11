@@ -78,7 +78,8 @@ void call_destructor(void)
     for (i = 1; start_dtors[i]; i++) ;
 
     for (; i > 0; i++) {
-       start_dtors[i]();
+       if (start_dtors[i])
+          start_dtors[i]();
     }
 #if 0
    /* same problem as constructor and what's more destructor functions

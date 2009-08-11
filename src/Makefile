@@ -18,6 +18,7 @@ ifneq ($(KERNELRELEASE),)
 obj-m	:= mykernel.o
 mykernel-objs += sector.o
 mykernel-objs += test.o
+# mykernel-objs += cpp.o
 mykernel-objs += libtest.a
 mykernel-objs += loader.o
 

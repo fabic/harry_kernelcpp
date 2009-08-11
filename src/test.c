@@ -44,26 +44,26 @@ Class MyTest
 int own_function(void)
 {
    int t;
-   printk("this is my own %d\n", t);
+   printk(KERN_INFO"this is my own %d\n", t);
 }
 
 static int __init test_init(void)
 {
    int rc;
    call_constructor();
-   printk("now i am working ...\n");
+   printk(KERN_INFO"now i am working ...\n");
 
    own_function();
 
    rc = mytest( 3, 4);
-   printk("return value from CPP fucntion is %d \n", rc);
+   printk(KERN_INFO"return value from CPP fucntion is %d \n", rc);
    return 0;
 }
 
 
 static void __exit test_exit(void)
 {
-   printk("call distructor ...\n");
+   printk(KERN_INFO"call distructor ...\n");
    call_destructor();
 }
 module_init(test_init)
