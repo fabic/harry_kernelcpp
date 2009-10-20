@@ -1,0 +1,16 @@
+
+HOW TO CREATE .ko MODULE
+
+This Makefile will help you to create .ko file for you linux kernel.
+
+DEPENDENCY
+
+kernel headers: depends on which version you are using and which distribution you are using you need install
+corespondent linux kernel header for you machine.
+
+libtest.a: This file is your main kernel functions written in CPP compile under ./cpp folder. If you want to know how to
+write a CPP function for kernel just jump to ./cpp folder and see ./cpp/README for details.
+
+gcc: whichever version should be OK. just test gcc 4.1 for debian.
+
+

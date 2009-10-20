@@ -1,0 +1,5 @@
+
+HOW TO CREATE STATIC LIBRARY
+
+$ gcc -c test.o test.cpp
+$ ar rcs libtest.a test.o
