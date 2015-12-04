@@ -11,6 +11,7 @@
 	* [C++ Exceptions & the Linux Kernel (Halldor Isak Gylfason, September 01, 2005 @ drdobbs.com)](http://www.drdobbs.com/cpp/c-exceptions-the-linux-kernel/229100146)
 	* [Why do people still care about C++ for kernel dev? Slashdot thread](http://linux.slashdot.org/story/14/10/03/1832216/object-oriented-linux-kernel-with-c-driver-support)
 	* [Is it possible to develop a loadable kernel module (LKM) on Linux with C++? (2012, Stackoverflow)](http://stackoverflow.com/questions/10469188/is-it-possible-to-develop-a-loadable-kernel-module-lkm-on-linux-with-c)
+	* [Why wasn't the Linux kernel written in C++? (Hacker News ycombinator.com)](https://news.ycombinator.com/item?id=2405387)
 
 
 ## Original README says :
