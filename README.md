@@ -1,3 +1,11 @@
+# “Harry-hit (?)”´s kernelcpp (2009)
+
+* _**2015-12-04/fabic :** This is an import from SVN to Git of
+  [kernelcpp](https://code.google.com/p/kernelcpp/) (by a certain "Harry-hit") for me to look at._
+* Official project page is at : <https://code.google.com/p/kernelcpp/>
+* Original author page : <https://code.google.com/u/113830570203256823928/> (couldn't find more accurate)
+
+## Original README says :
 
 HOW TO CREATE .ko MODULE
 
@@ -13,4 +21,5 @@ write a CPP function for kernel just jump to ./cpp folder and see ./cpp/README f
 
 gcc: whichever version should be OK. just test gcc 4.1 for debian.
 
+__*EOF*__
 
